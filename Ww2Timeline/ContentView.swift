@@ -24,6 +24,12 @@ struct ContentView: View {
     @State private var eventChosen1943 = 0
     let events1943 = ["Invasion of Sicily","Battle of Ortona"]
     
+    @State private var eventChosen1944 = 0
+    let events1944 = ["Liri Valley","D-Day"]
+    
+    @State private var eventChosen1945 = 0
+    let events1945 = ["Liberation of Netherlands","V-E Day","V-J Day"]
+    
     var body: some View {
         NavigationView() {
             Form {
@@ -57,7 +63,13 @@ struct ContentView: View {
                                 Text("\(self.events1943[$0])")
                             }
                         }
-                    }
+                    } else if yearChosen == 5 {
+                        Picker("Events", selection: $eventChosen1944) {
+                            ForEach(0..<events1944.count) {
+                                Text("\(self.events1944[$0])")
+                            }
+                        }
+                    } 
                 }
                 if yearChosen == 0 {
                     Section() {
@@ -112,6 +124,46 @@ struct ContentView: View {
                             Text("December 28, 1943")
                             Text("Part of the Allies advance through Italy, Canadians fought one of their toughest battles in Ww2 at the east coast city of Ortona. The city was held by German troops, and the mission was to liberate the city. Here they used mouseholing tactics to eventually get the Germans to retreat. 500 Canadians died, but in the end the battle was won and Ortona was liberated.")
                             Image("OrtonaBattle")
+                                .resizable()
+                                .scaledToFit()
+                        }
+                    }
+                }
+                if yearChosen == 5 {
+                    Section() {
+                        if eventChosen1944 == 0 {
+                            Text("May - June, 1944")
+                            Text("Germans still are heavily defending the Liri valley, which leads to the Italian capital of Rome. Canadians are ordered to rid the Liri valleys of Germans. The Canadians hurled themselves at the 2 lines of defense the Germans had. After breaking the first line, the Canadians corps took on the second. They experienced heavy mortar bombing and machine gun fire, but in the end the Canadians pushed the Germans back enough for the Americans to finish them off and take control of Rome. Out of the 50,000 fighting, 5900 died.")
+                            Image("LiriValley")
+                                .resizable()
+                                .scaledToFit()
+                        } else if eventChosen1944 == 1 {
+                            Text("June 6, 1944")
+                            Text("The Allies execute Operation Overlord, also commonly known as D-Day. The Canadians were assigned to do an amphibious raid on Juno Beach, and advanced against some of the  best enemy troops. However, they succeeded in the end. But at a great cost, there were almost 360 deaths and 1074 casualties. However, this battle turned the tide against Hitler, and would be a big step to Allied victory.")
+                            Image("D-Day")
+                                .resizable()
+                                .scaledToFit()
+                        }
+                    }
+                }
+                if yearChosen == 6 {
+                    Section() {
+                        if eventChosen1945 == 0 {
+                            Text("April - May 5, 1945")
+                            Text("Canadians liberate the Netherlands of Nazi control. The troops fought in very poor conditions, the terrain was flooded and tanks couldn’t get through. They also provided food and medical aid to the starving people living there. More than 7600 Canadians died during this campaign, but it was a sacrifice that would not be forgotten.")
+                            Image("Netherlands")
+                                .resizable()
+                                .scaleToFit()
+                        } else if eventChosen1945 == 1 {
+                            Text("May 7, 1945")
+                            Text("Germany surrenders and the war in Europe ends. The next day was declared in history as V-E day, the day when the Canadians would come back from Europe happy and free.")
+                            Image("V-E")
+                                .resizable()
+                                .scaledToFit()
+                        } else if eventChosen1945 == 2 {
+                            Text("August 15, 1945")
+                            Text("Japan surrenders to the Allies after America drops 2 atomic bombs on the cities of Hiroshima and Nagasaki. V-J day is declared and Canadians who were fighting in east Asia return to Canada. It was a very happy day for all Canadians as this marked the official end of Ww2.")
+                            Image("V-J")
                                 .resizable()
                                 .scaledToFit()
                         }
