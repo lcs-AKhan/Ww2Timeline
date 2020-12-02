@@ -29,7 +29,7 @@ import SwiftUI
                 Event(name: "Hitler Invades Poland",
                       date: "September 1, 1939",
                       description: "Germany invades Poland. As a result Britain and France realize they cannot give more appeasement, so they agree to declare war on Germany. This was the start of WW2, and the start of the Phoney war. Two weeks later, Stalin invades Poland and seizes territory.",
-                      imageName: ""),
+                      imageName: "Hitler"),
                 Event(name: "Canada Declares War",
                       date: "September 10, 1939",
                       description: "Canada officially declares war on Germany. This is the first time Canada has declared war on another country as an independent country. Of course, none of the Canadians were looking forward to having another large war.",
@@ -42,10 +42,10 @@ import SwiftUI
             ]),
             Year(name: "1940", children: [
 
-                Event(name: "German Invasion of the West",
+                Event(name: "Dunkirk",
                       date: "May - June, 1940",
                       description: "Germany begins invasion of Western Europe. They use blitzkrieg to swiftly take over northern France and then Paris. During this time, British troops at the French city of Dunkirk are surrounded by enemy forces. Instead of dying, they all escape off the shore with the help of the British navy and civilians. Around 338,000 men escaped death, which gave a huge reserve of troops for the Allies.",
-                      imageName: ""),
+                      imageName: "Dunkirk"),
 
             ]),
             Year(name: "1941", children: [
@@ -57,7 +57,7 @@ import SwiftUI
                 Event(name: "Bombing of Pearl Harbor",
                       date: "December 7, 1941",
                       description: "Japan joins the war and launches a surprise air attack on Pearl Harbor in Hawaii, sending two waves of 360 aircraft to bomb the island. Over 2400 Americans were killed from this event. The US was furious and formally entered the war the next day with the Allies. Hitler, sensing weakness, declares war on America 4 days later.",
-                      imageName: ""),
+                      imageName: "PearlHarbor"),
 
             ]),
             Year(name: "1942", children: [
@@ -92,7 +92,7 @@ import SwiftUI
                 Event(name: "Liberation of Paris",
                       date: "August 25, 1944",
                       description: "American troops enter Paris, joining the Allied fight to liberate the city from German control. On August 25, 1944, after many days of fighting, Germany surrendered Paris to the Allied forces, ending four years of occupation. It significantly pushed back the Germans out of Paris.",
-                      imageName: ""),
+                      imageName: "ParisLiberation"),
                 
             ]),
             Year(name: "1945", children: [
@@ -112,43 +112,44 @@ import SwiftUI
         @State var selectedTopLevelOption = 0
         
         var body: some View {
-            
-            NavigationView {
-                
-                Form {
-                    
-                    Section {
-                        
-                        Picker("Selected Year:", selection: $selectedTopLevelOption) {
                             
-                            ForEach(0 ..< topLevelOptions.count) { index in
+                NavigationView {
+                    
+                        Form {
+                            
+                            Section {
                                 
-                                Text(verbatim: topLevelOptions[index].name)
-                                
+                                Picker("Selected Year:", selection: $selectedTopLevelOption) {
+                                    
+                                    ForEach(0 ..< topLevelOptions.count) { index in
+                                        
+                                        Text(verbatim: topLevelOptions[index].name)
+                                        
+                                    }
+                                    
+                                }
+
                             }
                             
-                        }
+                            Section(header: Text("Events In This Year")) {
+                                
+                                // Loop over all the children of the selected top level option
+                                List(topLevelOptions[selectedTopLevelOption].children) { secondLevelOption in
+                                    
+                                    NavigationLink(secondLevelOption.name,
+                                                   destination: ChildDetailView(event: secondLevelOption))
+                                    
+                                }
 
-                    }
-                    
-                    Section(header: Text("Events In This Year")) {
-                        
-                        // Loop over all the children of the selected top level option
-                        List(topLevelOptions[selectedTopLevelOption].children) { secondLevelOption in
-                            
-                            NavigationLink(secondLevelOption.name,
-                                           destination: ChildDetailView(event: secondLevelOption))
-                            
+                            }
+                            Image("WW2")
+                                .resizable()
+                                .scaledToFit()
                         }
-
+                        .navigationTitle("WW2 Timeline")
                     }
-                    
-                }
-                .navigationTitle("WW2 Timeline")
             }
-            
         }
-    }
 
 
 struct ContentView_Previews: PreviewProvider {
