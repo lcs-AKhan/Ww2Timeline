@@ -11,6 +11,7 @@
 		D9662D4F257587A700DD36C9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9662D4E257587A700DD36C9 /* ContentView.swift */; };
 		D9662D51257587AA00DD36C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9662D50257587AA00DD36C9 /* Assets.xcassets */; };
 		D9662D54257587AA00DD36C9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9662D53257587AA00DD36C9 /* Preview Assets.xcassets */; };
+		D96DDB992578101200906CEB /* EventsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96DDB982578101200906CEB /* EventsDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		D9662D50257587AA00DD36C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D9662D53257587AA00DD36C9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D9662D55257587AA00DD36C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D96DDB982578101200906CEB /* EventsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				D9662D4C257587A700DD36C9 /* Ww2TimelineApp.swift */,
 				D9662D4E257587A700DD36C9 /* ContentView.swift */,
+				D96DDB982578101200906CEB /* EventsDetailView.swift */,
 				D9662D50257587AA00DD36C9 /* Assets.xcassets */,
 				D9662D55257587AA00DD36C9 /* Info.plist */,
 				D9662D52257587AA00DD36C9 /* Preview Content */,
@@ -140,6 +143,7 @@
 			files = (
 				D9662D4F257587A700DD36C9 /* ContentView.swift in Sources */,
 				D9662D4D257587A700DD36C9 /* Ww2TimelineApp.swift in Sources */,
+				D96DDB992578101200906CEB /* EventsDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
