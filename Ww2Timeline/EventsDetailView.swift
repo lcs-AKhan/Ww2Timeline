@@ -26,6 +26,9 @@ struct ChildDetailView: View {
                                 .resizable()
                                 .scaledToFit()
                     }
+                    Section {
+                        Text(event.troops)
+                    }
                 }
             }
         .navigationTitle(event.name)
@@ -48,7 +51,7 @@ struct ChildDetailView_Previews: PreviewProvider {
 
                                             Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus cursus risus eu elementum volutpat. Fusce pretium odio ac metus interdum interdum. Maecenas auctor leo ac nisi molestie, ut semper lacus vulputate. Etiam id lacinia purus. Maecenas pulvinar augue ullamcorper diam elementum, in dictum sapien consequat. Curabitur lobortis metus eu semper semper. Integer et mauris ut magna malesuada vehicula.
                                             """,
-                                                     imageName: "image1a"))
+                                                     imageName: "image1a", troops: ""))
                     }
                 }
             }
